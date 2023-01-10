@@ -13,7 +13,10 @@ function Calculator() {
   const concat = (number: string) => () => {
     setState({
       ...state,
-      screen: String(Number(state.screen + number)),
+      screen:
+        number === '.' || state.screen.includes('.')
+          ? state.screen + number
+          : String(Number(state.screen + number)),
       previous: state.previous
     })
   }
@@ -54,11 +57,18 @@ function Calculator() {
         <span>{state.operation}</span>
         <span>{state.screen}</span>
       </h2>
-      {[...'0123456789'].map((number, key) => (
-        <button onClick={concat(number)}>{number}</button>
+      {[...'0123456789.'].map((number, key) => (
+        <button className='border border-black p-1' onClick={concat(number)}>
+          {number}
+        </button>
       ))}
       {[...operations].map((operation, index) => (
-        <button onClick={operate(operation)}>{operation}</button>
+        <button
+          className='border border-black p-1'
+          onClick={operate(operation)}
+        >
+          {operation}
+        </button>
       ))}
       <button onClick={solve}>=</button>
       <button onClick={erase}>D</button>
