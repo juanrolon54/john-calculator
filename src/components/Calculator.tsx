@@ -50,9 +50,9 @@ export default ({ state, setState, initialState }: Props) => {
     })
   }
   return (
-    <div className='p-2 w-64 h-fit border-black border border-b-8 rounded-xl bg-slate-700 shadow-xl text-4xl'>
+    <div className='p-2 w-64 h-fit rounded-xl shadow-xl text-4xl z-50'>
       <div
-        className='p-2 mb-4 rounded-lg bg-black text-green-500 w-full flex flex-col justify-end
+        className='p-2 mb-4 rounded-lg bg-black text-blue-500 w-full flex flex-col justify-end
       '
       >
         <small> &#8203;{state.previous}</small>
@@ -95,16 +95,13 @@ export default ({ state, setState, initialState }: Props) => {
         <div className='grid grid-cols-1 grid-rows-5 gap-2 col-span-1 row-span-5 row-start-1 row-end-5 col-start-4 col-end-4'>
           {[...'+-*/'].map((operation, index) => (
             <div className='button'>
-              <button
-                className='bg-orange-400'
-                onMouseDown={operate(operation)}
-              >
+              <button className='bg-blue-400' onMouseDown={operate(operation)}>
                 {operation}
               </button>
             </div>
           ))}
           <div className='button grid-rows-6'>
-            <button onMouseDown={solve} className='bg-orange-400'>
+            <button onMouseDown={solve} className='bg-blue-400'>
               =
             </button>
           </div>

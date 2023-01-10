@@ -1,10 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+
+import { ContextProvider } from './context/AppContext'
 import Calculator from './App'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Calculator />
+    <ContextProvider>
+      <Calculator />
+    </ContextProvider>
   </React.StrictMode>
 )
