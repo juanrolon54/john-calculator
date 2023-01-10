@@ -13,3 +13,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .button {
+    @apply w-full rounded-lg bg-black;
+  }
+  .button > button {
+    @apply w-full rounded-lg p-2 border  border-black -translate-y-2 active:translate-y-0 transition-all;
+  }
+}
